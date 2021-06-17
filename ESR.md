@@ -369,7 +369,25 @@ Being aware of all these potential problems, each phase of the operation has bee
 
 ## Operational modes & duty cycle
 
+The duty cycle has been crucial in defining the power consumption of each component, in every possible configuration.
 
+Fifteen different operational modes have been identified:
+
++ *Dormant mode* - All subsystems and payloads are powered off (Pre-launch, Launch, Transfer, In-orbit insertion).
++ *Checking mode* - The onboard computer is turned on and system integrity checks are performed. The CubeADCS, all GNC sensors and Comsys are active and in medium power consumption mode. Once detachment begins, power is entirely supplied by batteries. 
++ *Safe recharge mode* - Batteries are charged at a rapid pace, while the OBC and GNC sensors are idled.
++ *Detumbling* - All GNC related components, with the exception of the OBC (whose highest power threshold comprises the highest load from payloads), are under full load.
++ *Initial maneuver* - After reaching a stable orbit, solar arrays deployment begins and solar panels supply power from this moment on.
++ *Calibration* - All stage one payloads are pointed at Bennu and calibrated accordingly.
++ *High and low orbit service* - Further details in sections (mission analysis and payload).
++ *Orbiting maneuver* - Different power levels are required depending on the specific orbit change or adjustment maneuver (including station-keeping maneuvers).
++ *Landing maneuver* - Solar arrays are stowed, while all navigation sensors are active. 
++ *On ground analysis* - On ground payloads are active and operating under the power supply of the battery pack. 
++ *On surface movement* - An electric engine produces momentum for the mobility mechanism and is powered by the battery pack for relatively short, but high power consumption time spans.
++ *Cleaning mode* - The battery pack supplies power to the active dust shield. 
++ *Standby and recharge* - Most systems are in standby mode, while solar panels recharge the batteries during daylight. During night time, comsys are actively sending data to OSIRIS-REx, while also producing heat. 
++ *Passive mode* - Once EOL is reached, all systems power off, while the battery pack slowly dies. 
++ *Safe mode* - An emergency mode, during which only vital components are kept powered on. ComSys are not turned off, since they need to send all collected data to OSIRIS-REx, in case the mission is compromised. 
 
 
 
@@ -469,11 +487,36 @@ Various sensors have been chosen, with the awareness that they all have their pr
 
 The propulsion system is subject to payload constraints as well. 
 
-Three different configurations have been evaluated:
+Two different configurations have been evaluated:
 
 + *VACCO® Micro Propulsion Systems-CPOD Cold gas propellers* - This system maneuvers the satellite by propelling a pressurized cold gas through eight nozzles (two for each spatial DOF, plus two extra nozzles for redundancy). 
     
-    This technique allows the system to be steered, but a stabilization mechanism (like reaction wheels) is required in order to lock the desired orientation. 
+    This technique allows the system to be steered, but a stabilization mechanism (like reaction wheels) is required in order to lock and stabilize the desired orientation. 
+
+    Three reaction wheels are installed as part of the integrated CubeADCS system, which includes its own CPU, specifically designed for attitude control and a set of related sensors (3 MEMS gyroscopes, 10 course sun sensors, a triaxial deployable magnetometer, a fine Sun and Earth sensor). 
+
+    This configuration has two main advantages: the reaction wheels are not just a stabilization mechanism, they can be actively used for a fine tuned attitude control; secondly, thrusters can be used to desaturate the reaction wheels themselves. 
+
++ *CUA / VACCO®-CubeSat High Impulse Propulsion System-CHIPS* - The only relevant variable of this configuration is the propulsion block position, located onto the lower face of the spacecraft (with reference to the axis intercepting both BOSS's and Bennu's centers of mass). 
+
+  Both orbital and attitude maneuvers are performed by the engine itself, however, reaction wheels are still necessary for attitude stabilization and control. 
+
+The latter has been chosen, as it still grants a highly accurate attitude control, while simplifying the in-depth analysis required by thrusters allocation.
+A momentum budget has been calculated by taking the effect of environmental perturbations into account and attitude control actuators have been sized accordingly.
+
+As a precaution, the maximum deviation from the local vertical axis has been set to 5 degrees. 
+
+The total disturbance torque, calculated as the root sum square of all torque contributions, amounts to 9.1E-5 Nm.
+
+All the parameters needed to compute this budget have been obtained from the satellite's configuration (e.g inertia) and orbital characteristics.
+
+Furthermore, the worst case scenario emerged from the analysis is a 180 degrees maneuver, performed in a 5 minutes time span (de-orbiting maneuver).
+
+The required slewing torque is 0.07 Nm.
+
+All the selected sensors and actuators are COTS (datasheets in the applicable documents). 
+
+The ADCS is tightly linked to the GNC, as they're part of the same closed-loop system.
 
 
 
@@ -572,6 +615,46 @@ Last but not least, it's crucial to point out that a good portion of the thermal
 
 
 ## EPS
+
+The Electrical Power System comprises a set of custom solar panels, a battery pack and a PDCU (Power Conditioning & Distribution Unit). 
+
+The first step needed to appropriately size the EPS is the evaluation of a power budget, where a 5% and a 20% margin have been taken into account, for COTS and other components, respectively (in compliance with AD3). 
+
+As standard practice, the budget has been calculated assuming the worst case scenario (full load operational mode) and an average solar flux of 1367 W/m².
+
+Triple junction Gallium Arsenide cells have been chosen for their superior efficiency and equipped with autonomous sun tracking sensors, which will maintain (when possible) a perpendicular angle between incident solar radiation and the panels themselves. 
+
+The installation of these sensors reduces the load on the ADCS, avoiding unnecessary maneuvers and maximizes the array's efficiency.
+
+As different systems require a diversified distribution of voltages and power, a PDCU has been installed as the power supply unit.
+
+In order to cut down on costs and complexity, stock components (such as space qualified CubeSat solar panels by ISIS) have been preferred whenever possible.
+
+Each of the chosen panels can produce 3V in nominal conditions and the array has been sized after a power conversion estimate, assuming this voltage for a 6 months mission (until EOL).
+
+As abundantly explained in previous chapters, a battery pack is required during certain mission phases. 
+
+Given their higher energy density and the absence of a memory effect, as well as their overall superior durability, Lithium-Ion batteries have been opted for. 
+
+In-depth estimates have highlighted that the total daily energy output of the solar panel (for a 0.2420 m² surface area) roughly amounts to 25 Wh. 
+
+This implies that during eclipses, the battery pack should output the same amount of energy.
+
+As previously mentioned, recharge cycles should be taken into account when sizing the battery pack.
+
+Despite being higher than usual, a 50% Depth of Discharge has been set to be adequate, given the overall short mission duration.
+
+The EXA-BA01 Lithium-Ion battery cells have been opted for, after a thorough research. 
+
+They can produce up to 88.8 Wh, at 3.7V or 7.4V, weighing only 215 g. 
+
+In order to reach the desired total capacity and for redundancy reason, a dual double cell configuration has been chosen. 
+
+This should keep the system functional, with a single cell failure tolerance. 
+
+The power they produce will be, as earlier underlined, managed by the DPCU. 
+
+This top grade PSU will meet each subsystem's demands, guarantee electromagnetic compatibility and protect the most sensitive components from sudden power surges.
 
 ## OBC
 
