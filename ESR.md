@@ -141,6 +141,18 @@ All the requirements can be found in the statement of work.
 
 # Mission and system design
 
+## AHP analysis
+
+An AHP analysis has been conducted (reference all'annex dell'AHP), in order to make adequate decisions by objective comparison of ad-hoc figures of merit. 
+
+Using this method, three different mission architectures have been analyzed. 
+
+Architecture complexity, lifecycle costs, data reliability and number of subsystems are the figure of merits taken into account. 
+
+A scoring system, carried out through a figure of merit prioritization matrix, allowed for the identification of the most suitable option.
+
+Further details are discussed in the (Mission architecture) section.
+
 ## Concept of operations
 
 The mission will begin after detachment from OSIRIS-REx. 
@@ -173,6 +185,8 @@ All the phases have been further subdivided into lower level subtasks, each of t
 
 The subdivision is illustrated by a functional tree. 
 
+Furthermore, the N2 diagram highlights the interaction of systems (structural, mechanical, electrical, functional, thermal, etc) and simplifies the budgets calculation. 
+
 ## Mission architecture
 
 Based on the previous examinations and results, three main mission architectures have been thoroughly discussed.
@@ -192,9 +206,174 @@ The single unit performs all the tasks, in different phases, while providing sig
 
 The main drawback, compared to an architecture with multiple specialized units, is the longer time span required to collect a similar amount of data.
 
+What emerged from the AHP analysis (reference) is that, despite having some criticalities and engineering challenges, the single unit solution is the best suited for the mission.
+
+One of its key pros is the ability to move on the asteroid's surface (similarly to JAXA's Hayabusa) and closely analyze different areas of Bennu, increasing chances of relevant discoveries.
+
 ## Mission analysis
 ### In orbit
+
+**Introduction to Mission Analysis** 
+
+The following section presents a description of the orbits selected for the BOSS Mission, the evaluation of the ΔV budget needed and the main maneuvers executed during the orbital phase. The proposed mission has been set up in order to accomplish the mission requirements MIS-xx1 and MIS-xx2 (defined to manage the global orbital period). 
+
+The in-orbit operative phase is made of three different types of orbits. All the orbits described are retrograde, sub-polar and with a high value of Beta Angle and they will be classified according to their height in A-orbit, B-orbit and C-orbit. 
+
+Using the STK software, (with a focus on the STK Astragator tool), a study of orbital propagation has been carried out, taking into account: 
+
++ Bennu’s gravitational parameters (zonal harmonic terms up to grade four: J2, J3, J4); 
+
++ The effect of Solar radiation pressure, based on a spherical model; 
+
++ The perturbation of gravitational forces exerted by a third body, like the Sun, Jupiter, or other planet in the proximity of Bennu, like the Earth, Venus and Mars. 
+
+All the previous contributions have been added to the propagator ‘Bennu Perturbated’ in order to execute the analysis. 
+
+Moreover, according to the type of propulsion, the maneuvers have been assumed to be impulsive. 
+
+**Deployment and Orbit insertion**  
+
+According to the timetable defined in the SoW, the mission will start on 11 Dec 2023 04:00:00 UTC, after the separation of BOSS from the mothercraft or more specifically when OSIRIS-Rex is going to be, for the first time, 16 km away from Bennu. 
+
+The release maneuver will be performed by a dispenser (exerting a force of 1 N, in accordance with the deployer standards ADx). 
+
+The separation is implemented through a ‘follow maneuver’ of the mothercraft, convoyed by an ‘in-track maneuver’. 
+
+The last maneuver will last for two days, in order to complete the commissioning phase (detumbling, solar arrays deployment, check and calibration of payloads). 
+
+Once BOSS reaches a sufficient distance from OSIRIS-Rex, the first propulsive maneuver will take place, immediately followed by the insertion maneuver. 
+
+This is the beginning of the operative phase. 
+
+**Operative Orbits, orbital maneuvers & station-keeping**
+
+The operative orbits have been classified based on the distance from Bennu’s mean surface: 
+
++ *A orbit*: number of orbits 3.5 at a height of 2.5 km
+
++ *B orbit*: number of orbit 25.5 at a height of 1 km
+
++ *C orbit*: number of orbit 39 at a height of 0.5 km
+
+From Dec 13 2023 (16:30:00 UTC) through  Jan 3 2024 (09:00:00 UTC), the spacecraft will follow the A orbit trajectory. Once the operative height is reached (after a circularization maneuver), the first type of maneuvers will begin. 
+
+These orbits are highly influenced by the perturbative effects of the other bodies. 
+
+Their duration has been chosen in order to minimize the time needed to globally map the surface of the asteroid (with particular focus to the time needed by the Chameleon imager and the LIDAR). 
+
+In spite of these major issues, this kind of orbit offers way too many benefits in terms of scientific measurements and accomplishment of science goals (e.g. mapping the residual magnetic field). 
+
+From Jan 5 2024 (10:00:00 UTC) through Feb 13 2024 00:00:00 UTC, the spacecraft will follow the B orbit trajectory. 
+
+After a perigee reduction maneuver, the B orbit insertion maneuver will take place. 
+
+Thanks to B orbit’s stability (negligible perturbative effects) all the measurements are performed more accurately, making it easier to handle optics and in general pointing requirements.   
+
+From Feb 13 2024 (13:00:00 UTC) through Mar 13 2024 (14:41:00 UTC), the spacecraft will follow the C orbit trajectory. 
+
+Much like the previous maneuvers, this kind of orbit will be reached through a maneuver of perigee reduction. 
+
+Based on the scientific measurements performed and landing site selection, this phase will last longer than the previous ones. 
+
+As just mentioned, data collected by onboard instruments and those transmitted by OSIRIS-Rex will be analyzed in order to define the landing site. 
+
+This phase will be followed by the landing maneuver.  
+
+All the operative phases are characterized by station-keeping maneuvers, in order to manage, in a pre-defined range, the evolution of the orbital parameters. 
+
+The range needed is defined in accordance to the payloads requirements and the optimization of the ΔV. 
+
+The main maneuvers focus on perigee and apogee adjustment. 
+
+In order to supply sufficient powers during the in orbit stage, an additional station-keeping maneuver will be performed, with the goal of increasing the Beta Angle (angle between the satellite's orbital plane and the sun vector).
+
+**Orbital Scientific Measurements**
+
+Orbital features, including -but not limited to- duration, have been carefully selected by taking payload requirements into account.
+
+Once the orbits have been chosen, further studies have been conducted, focusing on orbital stability, maneuver complexity, data coverage and redundancy.
+
+A Beta angle range has been defined, in order to guarantee appropriate sizing of solar panels and, consequently, of the entire power supply chain. 
+
+Proper sizing of solar panels is key, as the entire in orbit stage has been designed with particular attention to avoiding the usage of batteries (which will be essential during the in situ stage), in order to maximize overall mission longevity. 
+
+The meticolous choice of this essential parameter, among the various considerations, has also been influenced by the necessity to carry out infrared analysis, both in daylight and in eclipse. 
+
+In addition to this, a subpolar inclination angle will satisfy the global coverage requirement and optimize pointing accuracy, allowing for the mapping of residual magnetic field over polar regions, as an added benefit. 
+
+Moreover, this inclination will completely avoid eclipse periods, thus avoiding battery utilization (as previously mentioned) and simplifying overall thermal control of the satellite. 
+
+Additional benefits include simplified landing operations (lower total number of maneuvers, due to less strict limits on landing site latitude and longitude), which is a key advantage, given that the site is not known a priori.
+
+Additionally, the descending semimajor axes progression is compliant with MIS-xx requirement of measure magnetic field, guaranteeing data redundancy and higher picture clarity (less noise and more details captured for a given camera resolution). 
+
+As a precaution, since mission failure is likely to increase over time, higher stability orbits will be the last to be followed. 
+
+Last but not least, the orbital eccentricity is kept as close to 0 as possible, in order to easily meet payload pointing requirements and, as an added benefit, simplifying a preliminary link budget analysis (reference al capitolo del link budget).
+
+**Landing and Ground science operations** 
+
+The In-Orbit operational phase will end with the landing site selection, then unnecessary payloads will be shut down and  landing maneuvers will begin.
+
+This part will be managed by the GNC, aided by LIDAR and ADCS data. 
+
+Since the landing site is not known in advance, the exact date and time of this phase can only be restricted to the duration of the last C Orbit, even though it would be preferrable to choose equatorial latitudes, in accordance to EPS and TCS requirements.
+
+The landing phase will be broken down into two stages: the Hohmann maneuver and the Ground Approach phase. 
+
+A periapsis altitude-reducing maneuver is carried on(from 500 m to 50 m), during which the spacecraft will orient itself, in order to achieve engine ignition, which in turns nullifies the In-Track and Cross-Track velocity components. 
+
+At this point the only component will be the radial one and the satellite will be in free fall, under the action of the Bennu's gravitational acceleration (~ 8e-05 m / s2), up to the altitude of 10 m. 
+
+Consequently, a new engine ignition has been planned, in order to further control the descent speed, resulting in a soft touchdown 20 minutes afterwards. 
+
+During the ground approaching phase the solar panels will not be deployed. 
+
+In order to estimate the ΔV Budget, the first landing meuver has been implemented in STK, while the remaining ones are a result of Simulink simulations. 
+
+Provided that the landing operation is successful, the satellite will switch to its ground configuration, which is expected to last for three extra months.
+
+The entire landing phase, including drop tests and ground approach, has been simulated in Simulink, with great attention to structural integrity, power system health and overall attitude control of the satellite. 
+
+Assuming the tests have been correctly set up, no critical issues have emerged from the simulations.
+
+
 ### In situ
+
+Provided that the landing operation is successful, all primary mission goals will have been achieved. 
+
+The second mission stage will be entirely focused on the goal of opportunity.
+
+Once correctly positioned on Bennu's surface, the satellite's battery pack is expected to be fully charged and ready to power all systems for its first ground analysis.
+
+The X-ray diffractometer and CASSE will be operational for a whole day (with reference to the asteroid's daylight definition). 
+
+Right after this first phase, the satellite is expected to have sufficient power to activate its mobility mechanism and beginning the exploration of Bennu's surface.
+
+This mechanism will allow BOSS to move along parabolic trajectories, within a 
+controlled range (further details in [reference al paragrafo sul mobility mechanism]).
+
+Additionally, the guidance and control algorithm, aided by the IMU, will allow for a soft landing onto the target face, in order to perform additional surface inspections, while preventing damage to the most critical systems (e.g. solar panels). 
+
+As mentioned in (reference al paragrafo sui sensori), proximity sensors will further ensure that the satellite has landed onto the correct face.
+
+Once a new location is reached, solar panels will be deployed and the batteries charged, right after activating dust shields, which will minimize efficiency degradation, thus guaranteeing an optimal charging phase and greater longevity of the power supply chain.
+
+Assuming dust accumulation is minimized, the entire charge should take no longer than a couple of Earth days.
+
+Despite the negligible gravitational acceleration (~ 0.000098 m/s²), some of the operations described in this chapter, including landing and moving on the surface of the asteroid, might present several critical issues. 
+
+Being aware of all these potential problems, each phase of the operation has been diligently studied and solutions have been implemented accordingly. 
+
+
+
+## Operational modes & duty cycle
+
+
+
+
+
+
 
 ## Payload
 
@@ -493,26 +672,97 @@ mettete direttamente l'immagine in questo caso
 
 ## Dust and particles problems
 
+Dust and particles accumulation is a serious hazard in space missions. 
+
+At first, the absence of dust and debris during the in situ stage's critical phases (e.g. rotational transfer) has been assumed and the hypothesis of a worse yearly life degradation has been made in order to compensate for the strong assumption. 
+
+However, this oversimplification might be a critical issue that should be addressed with a better solution. 
+
+Among the many possibilities, an Electrodynamic Dust Shield has been used for the solar panels, given that it's a tried and tested technique. 
+
+The shield is comprised of a transparent film of ITO (Indium Tin Oxide) and glass, which can actively employ electrostatic and dielectrophoretic forces that remove dust on its surface. 
+
+An electromagnetic wave is produced along its surface by out of phase and indipendently charged electrodes. 
+
+As seen in [bibliographic reference], there's over a 90% recovery of the initial voltage, once the shields are active. 
+
 
 
 ## Mobility mechanism & attitude and anti-bouncing control 
+
+The satellite employs a mobility mechanism in order to move on the asteroid's surface. 
+
+The mechanism involves an impulse electric engine, which transfers angular momentum to the spacecraft through a mass, connected to the frame by a mechanical arm.
+
+The angular range can be controlled by a specific support, depending on the impulse's intensity. 
+
+The motion is controlled by an algorithm, specifically optimized for attitude and anti-bouncing control. 
+
+Its attitude controller handles the angle with respect to Bennu's surface with adequate corrections at landing. 
+
+The algorithm effectively damps and redistributes rotational kinetic energy in the system.
+
+The system is thus capable of protecting the satellite from impacts and pure rolling motion, which is a critical issue for exposed and easily degradable components like solar arrays. 
+
+The mathematical model and implementation of the algorithm can be found in AD_mob_mech.
+
+## Risk assessment 
+
+The analysis has been carried out since the beginning and progressively fine tuned as the mission design improved. 
+
+Potential risks have been identified and mapped onto a critical paths map and a risk matrix, once causal links among risks have been recognized, starting from a brainstorming analysis of hypothetical scenarios. 
+
+The critical paths map is color-coded in order to highlight association and cross-links between risks and their team of origin. 
+
+The process is analogous for the evaluation of project quality risks and risks related to the ongoing learning process. 
+
+The risk matrixes showcase unacceptable risks, in terms of severity and likelihood. 
+
+Once the unacceptable risks have been assessed, several mitigation responses 
+have been implemented, promoting all risks to acceptable. 
+
+The entire analysis is compliant to ECSS-M-ST-80C31July2008 Risk Management.
 
 # Study management 
 
 ## Organization Breakdown Structure
 
-## Study management
+The organization has been structured into a horizontal hierarchy, comprised of three main working groups (Management, Engineering, Science) and each unit has been managed by two or three individuals, chosen with consent of the entire team. 
+
+## Work management
+
+During the very first meetings, the entire team worked in unison to common goals and tasks, discussing various topics, including the organization breakdown itself. 
+
+The decision to use a horizontal hierarchy, rather than a pyramid structure, allowed for a better management of the group, as well as plenty of chances to 
+be exposed to constructive criticism, mutual supervision of the work in progress and necessary data and documentation provision. 
+
+Last but not least, this kind of structure emphasized the optimized parallelization of tasks and a fair distribution of workload.
 
 ## Work Breakdown Structure
 
+The entire work has been broken down into seven packages:
+
++ *Study organization (WP0)* - Group organization and coordination, first individual assignments
++ *Mission overview (WP1)* - Research and definition of mission goals
++ *High Level Analysis (WP2)* - Identification of stakeholders' needs, definition of mission requirements, STM and TTM development
++ *Feasibility Analysis (WP3)* - Mission architecture, concept of operations and operational modes definition
++ *Systems preliminary design (WP4)* 
+    + *Subsystems design (WP4a)*
+    + *Payload identification (WP4b)*
++ *Budgets (WP5)* - Evaluation of budgets in terms of mass, volume, cost, etc
++ *Spacecraft mechanical design (WP6)* - Structural design of the spacecraft and systems allocation
++ *Risk assessment (WP7)* - Risk assessment of all the project's phases
+  
+
+
 ## Study Timeline
 
+The entire project has been broken down onto a timeline, using Gantt's web client. 
+
+tutto quello che segue è ridondante rispetto a quanto detto nei capitoli precedenti e alla timeline che è self explanatory, non riempite di filler pls
+
 # Conclusions and recommendations
-
-
-
-
-
+ 
 
 
 
