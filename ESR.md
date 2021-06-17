@@ -780,7 +780,19 @@ The ΔV has been estimated to be 0.68 m/s, taking four contributions into accoun
 
 All the margins are compliant to ESA Margin Philosophy.
 
+## Mass and Volume Budget 
 
+The following table summarizes all the mass and volume requirements of the mission, subdivided into payload, sybsystems, structures and mechanisms.
+
+Based on ESA Margin Philosophy, the following margins have been assumed:
+
++ Stock, off the shelf products (5%)
++ Stock, but later customized products (10%)
++ Non space-rated components and components with unspecified bulk dimensions (20%)
+
+The thermopile detector has been omitted, since both its mass and volume are negligible. 
+
+The results fit the SoW requirements, as well as ESA's stricter regulations on mass constraints.
 
 
 ## Structures
