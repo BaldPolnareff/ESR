@@ -656,6 +656,8 @@ The power they produce will be, as earlier underlined, managed by the DPCU.
 
 This top grade PSU will meet each subsystem's demands, guarantee electromagnetic compatibility and protect the most sensitive components from sudden power surges.
 
+
+
 ## OBC
 
 UNIBAP's *SpaceCloud iX5-100* is the onboard computer of choice for this mission. 
@@ -672,6 +674,61 @@ A custom GNU/Linux distribution, tailored to the very specific needs, is built a
 
 A RAID 6 NAS of high capacity space-rated M.2 SSDs is used for mission data storage and utilizes the onboard Gigabit Ethernet of the computing module. 
 
+## Energy budget
+
+Once the power generation and management have been studied and properly defined, as described in (reference a EPS e capitolo delle operational modes), the battery state of charge needs to be mapped for the entire mission. 
+
+As visible from the plot below, a battery charge profile has been calculated. 
+
+Three distinct profiles have surfaced from the analysis: 
+
++ *Pre-detachment phase*
++ *In orbit analysis*
++ *In situ analysis*
+
+The following plot highlights the first phase, where power consumption will be driven by the initial powering on of the OBC.
+
+(mettete qui il plot zoomato)
+
+During system integrity checks, right before detachment, the satellite will be anchored to OSIRIS-REx and the solar arrays will not yet be deployed nor exposed to sufficient sunlight to be operative. 
+
+Therefore, part of the battery energy needs to be used.
+
+During the release phase, the solar panels will begin recharging the battery pack, although at a slower rate than the fully deployed configuration (1/6th of the total charge has been assumed, given that the satellite's attitude is unknown).
+
+Once fully charged, the detumbling mode will take place, producing a modest  net power loss, despite the array being operative. 
+
+At the end of this phase, however, solar panels will be deployed and outputting 67 Wh, charging the batteries at their nominal maximum pace. 
+
+Once again, the battery pack will be fully charged and then the in orbit phase will begin. 
+
+During this phase, net power consumption will never exceed the power output of solar panels, which will be solely used as a power source, assuming no emergency or malfuction of the system.
+
+However, if any undesired event were to cause an unexpected failure, the battery pack should be able to keep BOSS in Safe Mode for over 7 eclipses. 
+
+As the landing phase begins, the solar array will be undeployed, thus producing a lower power output. 
+
+A battery drain, followed by a discharge, is expected to happen during this phase, since the satellite is predicted to land on the asteroid's surface during an eclipse. 
+
+As soon as BOSS is exposed to sunlight, the solar array will be deployed and will start outputting ~ 50 Wh. 
+
+The first in situ analysis will last a day on Bennu (roughly 2h 17m on Earth) and the solar array is powerful enough to keep the batteries charged, despite several payloads being in function.
+
+Once the eclipse is reached again, the satellite will start moving on the surface of Bennu, activating the onboard electric engine. Additionally, electrodynamic dust shields will require additional power, discharging the batteris by roughly 30%.
+
+As soon as this discharge threshold is exceeded, BOSS will enter Stand-by&Recharge mode for a few days, allowing for a new analysis cycle.
+
+(plot di questa fase, non mettete screenshot per cortesia, qui come in ogni altro elemento del documento, salvare il plot come SVG o EPS o almeno PNG da matlab non richiede alcuno sforzo, non può farlo chi deve scrivere il documento)
+
+Since a minimum degradation of the solar cells is intrinsecally unavoidable and the shields can't possibly eliminate all the cumulated dust or debris, a 0.3% cyclic degradation parameter has been assumed. 
+
+The progressive performance reduction will increase each recharge cycle time, until the solar panels reach a point where they can't produce energy levels that exceed power consumption. 
+
+Using the above mentioned factor as a reference point, the satellite is estimated to conduct a total of 32 in situ inspections.
+
+(plot della fase finale qui)
+
+Especially during the last cycles, given that the power consumption during eclipses will exceed that produced by the panels, the interval between each new analysis is reduced to four days. 
 
 
 ## Data budget
@@ -711,6 +768,20 @@ Given that the data rate of all instruments has been estimated to be approximate
 
 Considering the lack of data and the fact that the operating system and software already use part of the main storage (and might require more in the future), taking into consideration that, depending on the file system, read/write performance can degrade when a drive is close to being full, an extra 30% margin has been added, resulting in a 137 GB maximum daily requirement, which will be backed up in the NAS and transferred to OSIRIS-REx, once in LOS again.
 
+## Velocity budget
+
+The ΔV has been estimated to be 0.68 m/s, taking four contributions into account:
+
++ Changes in operative orbit, including orbit insertion maneuvers, the three Hohmanns maneuvers used to reduce orbital altitude and station-keeping maneuvers, assuming a 5% margin of error 
+
++ Landing maneuvers, whose intrinsecally higher uncertainty required a 10% margin
+
++ Attitude control, including velocity budgets for 15 cycles of reaction wheels' desaturation, calculated by taking disturbances and thrusters features into consideration. Given the attitude control has the highest uncertainty, a margin of 100% has been assumed
+
+All the margins are compliant to ESA Margin Philosophy.
+
+
+
 
 ## Structures
 
@@ -734,6 +805,12 @@ The solar panel deployment is handled by four rotational joints, directly instal
 Another structural problem is that of landing impacts. 
 
 Several Solidculo simulations have been run with varying parameters. 
+
+Initial conditions had been set to 20 cm/s (collision velocity) and a 0.3 damping coefficient, however, further studies highlighted that these values were too high, due to Bennu's low gravity.
+
+That same simulation has thus ben run with Earth's gravity, showcasing a good stress resistance of the structures. 
+
+Further details are available in (reference all'annesso). 
 
 
 
