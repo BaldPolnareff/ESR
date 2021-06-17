@@ -816,6 +816,8 @@ Further details are available in (reference all'annesso).
 
 
 
+
+
 ## Spacecraft configuration
 
 The spatial allocation of systems and instruments requires the ability to find an optimal compromise that takes into consideration multiple issues, including - but not limited to - well-thought-out volume utilization, thermal dissipation and electromagnetic interference (this one being generally minimized by design in space-rated components).
@@ -832,7 +834,7 @@ mettete direttamente l'immagine in questo caso
 
 ## Dust and particles problems
 
-Dust and particles accumulation is a serious hazard in space missions. 
+Dust and particles accumulation is a serious hazard in space missions (more details in the following chapter). 
 
 At first, the absence of dust and debris during the in situ stage's critical phases (e.g. rotational transfer) has been assumed and the hypothesis of a worse yearly life degradation has been made in order to compensate for the strong assumption. 
 
@@ -845,6 +847,49 @@ The shield is comprised of a transparent film of ITO (Indium Tin Oxide) and glas
 An electromagnetic wave is produced along its surface by out of phase and indipendently charged electrodes. 
 
 As seen in [bibliographic reference], there's over a 90% recovery of the initial voltage, once the shields are active. 
+
+## Environmental control
+
+Currently, the Sun is ongoing it’s 25th solar cycle (each cycle lasts approximately 11 years), which began in between 2019 and 2020 and is expected to produce a peak of solar activity around 2025. 
+
+The mission is expected to launch in 2024, close to the maximum solar activity.  
+
+A peak value, given by 104 sunspots, is expected to produce around 137 SFU (Solar Flux Units). 
+
+Cosmic background noise should also be taken into account, as it’s expected to impact instruments’ performance on a larger time scale, much like solar radiation, although to a far less significant degree.  
+
+Protecting instruments from solar activity is relatively simple, as the phenomenon is predictable.  
+
+However, there are unpredictable phenomena such as SEEs (Single Event Effects), which might go undetected until a sudden system damage occurs. 
+
+Ionized particles can damage sensitive components and affect their accuracy or, in the worst case scenario, particularly intense radiation bursts can cause temporary shutdowns of the entire system. 
+
+However, charged particles can also affect and degrade performance over a longer time scale.  
+
+A measurement of their cumulative effect is given by the TID (Total Ionizing Dose), which is the total dose of radiation absorbed by the system over a given time span.  
+
+D.= DT=∑i=1nE_imT
+ 
+The long term effects of charged particles are more of an issue with microelectronics, but they can also degrade the performance of solar cells and optics.  
+
+This effect should also be taken into account for Galactic Cosmic Rays, where the minimum value of the TID is generally estimated to be close to the peak solar activity, thus making it significantly less dangerous during the chosen time span of the mission.  
+
+Non-ionized but particularly massive particles can damage the entire system on a structural level, as they can alter the chemical bonds of several materials.  
+
+For the most part, space rated instruments have been carefully selected for this mission, as they are built with these phenomena in mind.  
+
+There are some “testing” non space rated devices, but they’re redundant and their measurements will be carefully compared to those of other instruments.  
+
+In addition to this, their cost is substantially low for the given budget, thus making it inconvenient and pointless to build a custom radiation proof system for those devices. 
+
+
+Another relevant phenomenon, regarding Bennu's environment, is the detachment of debris from its surface, due to either thermal gradients or the collision with small space rocks. 
+
+These massive particles orbit around Bennu for an undetermined time span and then fall on the surface again. 
+
+Therefore, studying their interaction with the asteroid can unveil potentially interesting data on Bennu's gravitational field. 
+
+In terms of mission safety, most of these particles are not particularly massive, nor are they dangerously fast, thus making an active shielding mechanism unnecessary. 
 
 
 
@@ -883,6 +928,7 @@ have been implemented, promoting all risks to acceptable.
 
 The entire analysis is compliant to ECSS-M-ST-80C31July2008 Risk Management.
 
+
 # Study management 
 
 ## Organization Breakdown Structure
@@ -920,6 +966,17 @@ The entire work has been broken down into seven packages:
 The entire project has been broken down onto a timeline, using Gantt's web client. 
 
 tutto quello che segue è ridondante rispetto a quanto detto nei capitoli precedenti e alla timeline che è self explanatory, non riempite di filler pls
+
+## Cost Analysis 
+The net mission cost has been estimated, considering the cost of the elements comprising all of BOSS's subsystems. 
+
+Given the lack of historic data, Cost Estimating Relationships could not be built and the Parametric cost estimating method could not be applied. 
+
+Consequently, the only estimated Life Cycle Cost is the acquisition cost, which includes conceptual design, detailed design prototype, tests, integration, etc. 
+
+When available, prices have been obtained from datasheets, otherwise they've been estimated, with a cost inflation of 10%.  
+
+As expected, the costs given by the purchase of components are typically the least expensive and for that reason the resulting price is largely contained within the 20'000'000 euros budget. 
 
 # Conclusions and recommendations
  
